@@ -1,4 +1,4 @@
-import bot from "./assets/bot.svg";
+import bot from "./assets/bot.png";
 import user from "./assets/user.svg";
 
 const form = document.querySelector("form");
@@ -41,8 +41,8 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
   return `
-    <div class="wrapper ${isAi && "ai"}">
-      <div class="chat">
+    <div class="wrapper ${isAi ? "ai" : "user"}">
+      <div class="chat ${isAi ? "ai" : "user"}">
         <div class="profile">
           <img
             src="${isAi ? bot : user}"

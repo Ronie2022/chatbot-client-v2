@@ -14,7 +14,14 @@ body {
 #app {
   width: 100vw;
   height: 100vh;
-  background: #343541;
+  background-image: linear-gradient(
+    to bottom,
+    #084e4d,
+    #0e3c45,
+    #172a35,
+    #161a21,
+    #090909
+  );
 
   display: flex;
   flex-direction: column;
@@ -44,16 +51,36 @@ body {
   display: none;
 }
 
-.wrapper {
-  width: 100%;
+.wrapper.user {
+  width: 80%;
   padding: 15px;
+  margin: 0px 20px 0px auto;
+}
+
+.wrapper.ai {
+  left: 20px;
+  width: 80%;
+  padding: 15px;
+  margin: 20px;
 }
 
 .ai {
-  background: #40414f;
+  background: transparent;
+  padding: 10px;
 }
 
-.chat {
+.chat.user {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.chat.ai {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -65,11 +92,11 @@ body {
 }
 
 .profile {
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-
-  background: #5436da;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  background: black;
 
   display: flex;
   justify-content: center;
@@ -77,21 +104,44 @@ body {
 }
 
 .ai .profile {
-  background: #10a37f;
+  background: transparent;
 }
 
 .profile img {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+.ai .message {
+  flex: 1;
+  padding: 20px;
+  color: #dcdcdc;
+  font-size: 20px;
+  background: rgb(51, 47, 47);
+  border-radius: 30px;
+  max-width: 100%;
+  overflow-x: scroll;
+
+  /*
+   * white space refers to any spaces, tabs, or newline characters that are used to format the CSS code
+   * specifies how white space within an element should be handled. It is similar to the "pre" value, which tells the browser to treat all white space as significant and to preserve it exactly as it appears in the source code.
+   * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
+   * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
+  */
+  white-space: pre-wrap;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .message {
   flex: 1;
-
+  padding: 20px;
   color: #dcdcdc;
   font-size: 20px;
-
+  background: rgb(3, 46, 46);
+  border-radius: 30px;
   max-width: 100%;
   overflow-x: scroll;
 
@@ -115,9 +165,10 @@ body {
 form {
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   padding: 10px;
-  background: #40414f;
+  background: rgb(2, 44, 44);
+  border-radius: 30px;
 
   display: flex;
   flex-direction: row;
@@ -128,7 +179,7 @@ textarea {
   width: 100%;
 
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
 
   padding: 10px;
   background: transparent;
@@ -147,4 +198,8 @@ button {
 form img {
   width: 30px;
   height: 30px;
+}
+
+.send {
+  margin: 2px 20px;
 }
